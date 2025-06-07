@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Restaurants{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h1>All Cafes</h1>
+
+	  <table class="table table-dark table-striped table-hover">
+          <thead>
+                <tr>
+                    <!--FIRST, GET THE ROW HEADINGS AND PLACE THEM (THEY ARE IN FIRST LIST)-->
+                    {% for row_name in cafes[0] %}
+                        <th scope="col">{{ row_name }}</th>
+                    {% endfor %}
+                </tr>
+          </thead>
+          <tbody>
+            <!--GET THE CAFES (all the list items besides the first), and place em-->
+                {% for cafe_n_info in cafes[1:] %}
+                    {% set cafe_name = cafe_n_info[0] %}
+                    {% set cafe_url = cafe_n_info[1] %}
+                    {% set open_time = cafe_n_info[2] %}
+                    {% set close_time = cafe_n_info[3] %}
+                    {% set coffee_rating = cafe_n_info[4] %}
+                    {% set wifi_rating = cafe_n_info[5] %}
+                    {% set power_rating = cafe_n_info[6] %}
+                    <tr>
+                        <th scope="row">{{ cafe_name }}</th>
+                        <td><a href="{{ cafe_url }}">Maps Link</a></td>
+                        <td>{{ open_time }}</td>
+                        <td>{{ close_time }}</td>
+                        <td>{{ coffee_rating }}</td>
+                        <td>{{ wifi_rating }}</td>
+                        <td>{{ power_rating }}</td>
+                    </tr>
+                {% endfor %}
+          </tbody>
+  	  </table>
+
+      <p><a href="{{ url_for('home') }}">Return to index page</a></p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+<!--1. 'EXTEND' BASE.HTML/INHERIT FROM IT/USE IT AS PAGE TEMPLATE-->
+{% extends "base.html" %}
+<!--2. ADD THE CONTENT WE WANT (IN THIS CASE TITLE)-->
+{% block title %}Success{% endblock %}
+<!--3. ADD STYLING-->
+{% block styling %}
+    {{ super() }}
+{% endblock %}
+<!--4. NOW ADD THE BODY WITHIN THE BLOCKS-->
+{% block content %}
+    <div class="container">
+      <h1><u>Top Secret</u>😎</h1>
+      <iframe src="https://giphy.com/embed/Ju7l5y9osyymQ" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+      <p><a href="https://giphy.com/gifs/rick-astley-Ju7l5y9osyymQ">via GIPHY</a></p>
+	  <p class="secret-text">
+		  Congrats again! I'm proud of you for guessing correctly! How did you find this though?...
+	  </p>
+   	</div>
+{% endblock %}

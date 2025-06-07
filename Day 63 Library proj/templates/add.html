@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Book</title>
+  </head>
+  <body>
+    <form action="" method="POST">
+      <label>Book Name</label>
+      <input type="text" name="bookname"/>
+      <label>Book Author</label>
+      <input type="text" name="author"/>
+      <label>Rating (NO FRACTIONS, between 1-10, e.g: 9.5)</label>
+      <input type="text" name="rating"/>
+      <button type="submit">Add Book</button>
+    </form>
+    {% if book_added %}
+        <p style="color:red">Book successfully added! Return to homescreen to view.</p>
+    {% endif %}
+    <a href="{{ url_for('home') }}">Return to home screen</a>
+  </body>
+</html>

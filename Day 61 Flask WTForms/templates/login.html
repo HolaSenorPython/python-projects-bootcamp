@@ -1,0 +1,18 @@
+<!--1. 'EXTEND' BASE.HTML/INHERIT FROM IT/USE IT AS PAGE TEMPLATE-->
+{% extends "base.html" %}
+<!--2. ADD THE RENDER FORM METHOD SO WE CAN WRITE LESS CODE!-->
+{% from 'bootstrap5/form.html' import render_form %}
+<!--3. ADD THE CONTENT WE WANT (IN THIS CASE TITLE)-->
+{% block title %}Login{% endblock %}
+<!--3. ADD STYLING-->
+{% block styling %}
+    {{ super() }}
+{% endblock %}
+<!--4. NOW ADD THE BODY WITHIN THE BLOCKS-->
+{% block content %}
+	<div class="container">
+		<h1>Login</h1>
+		<!-- This is where our form will go. -->
+		{{ render_form(form) }}
+	</div>
+{% endblock %}

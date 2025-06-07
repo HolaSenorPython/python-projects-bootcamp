@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Rating</title>
+</head>
+<body>
+    <h1 style="color:purple"><u>Book Name: {{ book.title }}</u></h1>
+    <h2 style="color:purple"><u>Current rating: {{ book.rating }}</u></h2>
+    <h3>Note: Before changing rating, remember NO fractions, decimals ONLY if necessary. (e.g. 7.5)</h3>
+    <form action="" method="POST">
+        <input type="text" name="rating">
+        <button type="submit">Change Rating</button>
+    </form>
+    {% if book_updated %}
+        <p style="color:red">Rating successfully changed!</p>
+    {% endif %}
+    <br>
+    <a href="{{ url_for('home') }}">Return to Home Screen</a>
+</body>
+</html>
